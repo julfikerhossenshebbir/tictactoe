@@ -1,3 +1,25 @@
+
+
+#installPWA {
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #ff0000; /* লাল রঙ */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0; /* Button spacing */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 220px;
+}
+
+#installPWA:hover {
+  background-color: #cc0000; /* Darker red on hover */
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 .reset-btn {
   padding: 12px 24px;
   font-size: 18px;
