@@ -24,10 +24,10 @@ let isSinglePlayer = false;
 let aiDifficulty = 'normal';
 
 // Load sound files
-const soundX = new Audio('https://files.jhsite.com/sounds/sound-1.wav');
-const soundO = new Audio('https://files.jhsite.com/sounds/sound-2.wav');
-const soundWin = new Audio('https://files.jhsite.com/sounds/sound-3.wav');
-const soundDraw = new Audio('https://files.jhsite.com/sounds/sound-4.wav');
+const soundX = new Audio('/sounds/sound-1.wav');
+const soundO = new Audio('/sounds/sound-2.wav');
+const soundWin = new Audio('/sounds/sound-3.wav');
+const soundDraw = new Audio('/sounds/sound-4.wav');
 
 // Navigation Functions
 function showMenu() {
