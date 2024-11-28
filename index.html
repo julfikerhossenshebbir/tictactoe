@@ -14,7 +14,7 @@
     <h1>Tic Tac Toe</h1>
     <button id="singlePlayer">Single Player</button>
     <button id="doublePlayer">Double Player</button>
-    <button id="installPWA" style="display: none;">Play Offline</button>
+    <button id="installPWA">Play Offline</button>
   </div>
 
   <div id="difficulty-menu" class="menu" style="display: none;">
@@ -69,23 +69,27 @@ window.addEventListener('beforeinstallprompt', (e) => {
   installButton.style.display = 'block'; // বাটনটি দেখাও
 
   installButton.addEventListener('click', async () => {
-    installButton.style.display = 'none'; // বাটনটি লুকাও
-    deferredPrompt.prompt(); // PWA ইনস্টল প্রম্পট দেখাও
-    const choiceResult = await deferredPrompt.userChoice;
-    if (choiceResult.outcome === 'accepted') {
-      console.log('PWA installed');
-    } else {
-      console.log('PWA installation declined');
+    if (deferredPrompt) {
+      deferredPrompt.prompt(); // PWA ইনস্টল প্রম্পট দেখাও
+      const choiceResult = await deferredPrompt.userChoice;
+      if (choiceResult.outcome === 'accepted') {
+        console.log('PWA installed');
+        installButton.style.display = 'none'; // বাটনটি লুকাও
+      } else {
+        console.log('PWA installation declined');
+      }
+      deferredPrompt = null; // Prompt ইভেন্ট রিসেট করো
     }
-    deferredPrompt = null; // Prompt ইভেন্ট রিসেট করো
   });
 });
 
 // PWA ইনস্টল হয়ে গেলে বাটনটি লুকাও
 window.addEventListener('appinstalled', () => {
-  document.getElementById('installPWA').style.display = 'none';
+  const installButton = document.getElementById('installPWA');
+  installButton.style.display = 'none';
   console.log('PWA installed successfully');
 });
+
 
   </script>
 </body>
