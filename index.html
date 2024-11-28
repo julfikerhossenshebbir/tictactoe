@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="stylesheetjhshebbir.css">
+  <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/x-icon" href="https://files.jhsite.com/jhs.jpg">
 </head>
 <body>
   <div id="menu" class="menu">
@@ -49,5 +52,17 @@
     </div>
   </div>
   <script src="javajhshebbirscript.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then(registration => {
+        console.log('Service Worker registered with scope:', registration.scope);
+      })
+      .catch(error => {
+        console.error('Service Worker registration failed:', error);
+      });
+  }
+  </script>
 </body>
 </html>
