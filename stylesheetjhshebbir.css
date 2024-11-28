@@ -1,31 +1,53 @@
-
-
-#installPWA {
-  padding: 12px 24px;
-  font-size: 18px;
-  font-weight: bold;
-  background-color: #ff0000; /* লাল রঙ */
-  color: white;
-  border: none;
-  border-radius: 8px;
-  margin: 10px 0; /* Button spacing */
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  width: 220px; /* ফিক্সড চওড়া */
-  text-align: center; /* বাটনের টেক্সট সেন্টার করুন */
-  align-items: center;
-  justify-content: center;
-  position: relative; /* স্থির অবস্থান */
+/* Custom PWA install button styling */
+.pwa-button {
+    position: fixed;
+    z-index: 999;
+    left: 20px;
+    bottom: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #1900ff;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .5s, opacity .5s;
 }
 
-#installPWA:hover {
-  background-color: #cc0000; /* Darker red on hover */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* শুধু শ্যাডো পরিবর্তন করুন */
+.pwa-button[hidden] {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
 }
 
-#installPWA:active {
-  transform: none; /* স্কেল সরিয়ে দিন */
-  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2); /* ক্লিক করার সময় ইফেক্ট */
+.pwa-button:not([disabled])::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: inherit;
+    border-radius: inherit;
+    animation: 1s cubic-bezier(0, 0, .2, 1) infinite pwa-button-ping;
+}
+
+.pwa-button svg.flash {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.4;
+}
+
+@keyframes pwa-button-ping {
+    75%, to {
+        transform: scale(1.6);
+        opacity: 0;
+    }
 }
 
 
