@@ -13,6 +13,8 @@
   transition: all 0.3s ease-in-out;
   width: 220px; /* ফিক্সড চওড়া */
   text-align: center; /* বাটনের টেক্সট সেন্টার করুন */
+  align-items: center;
+  justify-content: center;
   position: relative; /* স্থির অবস্থান */
 }
 
