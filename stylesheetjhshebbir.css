@@ -11,14 +11,21 @@
   margin: 10px 0; /* Button spacing */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  width: 220px;
+  width: 220px; /* ফিক্সড চওড়া */
+  text-align: center; /* বাটনের টেক্সট সেন্টার করুন */
+  position: relative; /* স্থির অবস্থান */
 }
 
 #installPWA:hover {
   background-color: #cc0000; /* Darker red on hover */
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* শুধু শ্যাডো পরিবর্তন করুন */
 }
+
+#installPWA:active {
+  transform: none; /* স্কেল সরিয়ে দিন */
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2); /* ক্লিক করার সময় ইফেক্ট */
+}
+
 
 .reset-btn {
   padding: 12px 24px;
