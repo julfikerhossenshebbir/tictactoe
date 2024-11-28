@@ -60,30 +60,33 @@
     
   let deferredPrompt;
 
-  // Check if PWA can be installed
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    const installButton = document.getElementById('installPWA');
-    installButton.style.display = 'block'; // Show the button
-    installButton.addEventListener('click', async () => {
-      installButton.style.display = 'none'; // Hide the button after click
-      deferredPrompt.prompt(); // Show the install prompt
-      const choiceResult = await deferredPrompt.userChoice;
-      if (choiceResult.outcome === 'accepted') {
-        console.log('PWA installed');
-      } else {
-        console.log('PWA installation declined');
-      }
-      deferredPrompt = null; // Clear the deferred prompt
-    });
-  });
+// PWA ইনস্টল করার ইভেন্ট ধরে রাখার জন্য
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
 
-  // Hide PWA button if already installed
-  window.addEventListener('appinstalled', () => {
-    document.getElementById('installPWA').style.display = 'none';
-    console.log('PWA already installed');
+  const installButton = document.getElementById('installPWA');
+  installButton.style.display = 'block'; // বাটনটি দেখাও
+
+  installButton.addEventListener('click', async () => {
+    installButton.style.display = 'none'; // বাটনটি লুকাও
+    deferredPrompt.prompt(); // PWA ইনস্টল প্রম্পট দেখাও
+    const choiceResult = await deferredPrompt.userChoice;
+    if (choiceResult.outcome === 'accepted') {
+      console.log('PWA installed');
+    } else {
+      console.log('PWA installation declined');
+    }
+    deferredPrompt = null; // Prompt ইভেন্ট রিসেট করো
   });
+});
+
+// PWA ইনস্টল হয়ে গেলে বাটনটি লুকাও
+window.addEventListener('appinstalled', () => {
+  document.getElementById('installPWA').style.display = 'none';
+  console.log('PWA installed successfully');
+});
+
   </script>
 </body>
 </html>
