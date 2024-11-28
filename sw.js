@@ -3,6 +3,10 @@ const urlsToCache = [
   "/index.html",
   "/stylesheetjhshebbir.css",
   "/javajhshebbirscript.js",
+  "/sounds/sound-1.wav",
+  "/sounds/sound-2.wav",
+  "/sounds/sound-3.wav",
+  "/sounds/sound-4.wav"
   ];
 
 // Install Service Worker and Cache Files
