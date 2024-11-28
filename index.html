@@ -12,11 +12,9 @@
 <body>
   <div id="menu" class="menu">
     <h1>Tic Tac Toe</h1>
-    <button id="singlePlayer">
-    
-      Single Player</button>
-    <button id="doublePlayer">
-      Double Player</button>
+    <button id="singlePlayer">Single Player</button>
+    <button id="doublePlayer">Double Player</button>
+    <button id="installPWA" style="display: none;">Play Offline</button>
   </div>
 
   <div id="difficulty-menu" class="menu" style="display: none;">
@@ -58,6 +56,34 @@
     .then(() => console.log('Service Worker Registered'))
     .catch((error) => console.log('Service Worker Registration Failed:', error));
     }
+
+    
+  let deferredPrompt;
+
+  // Check if PWA can be installed
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const installButton = document.getElementById('installPWA');
+    installButton.style.display = 'block'; // Show the button
+    installButton.addEventListener('click', async () => {
+      installButton.style.display = 'none'; // Hide the button after click
+      deferredPrompt.prompt(); // Show the install prompt
+      const choiceResult = await deferredPrompt.userChoice;
+      if (choiceResult.outcome === 'accepted') {
+        console.log('PWA installed');
+      } else {
+        console.log('PWA installation declined');
+      }
+      deferredPrompt = null; // Clear the deferred prompt
+    });
+  });
+
+  // Hide PWA button if already installed
+  window.addEventListener('appinstalled', () => {
+    document.getElementById('installPWA').style.display = 'none';
+    console.log('PWA already installed');
+  });
   </script>
 </body>
 </html>
