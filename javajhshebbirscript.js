@@ -235,34 +235,3 @@ resetGameBtn.addEventListener('click', () => {
     ? `Player X's turn (vs AI)`
     : `Player X's turn`;
 });
-
-
-      /* Custom PWA install button */
-(({button:t,onInstall:n})=>{ 
-    let i=null;
-    var e=()=>{ 
-        i&&(t.disabled=!0,i.prompt().then(e=>{"accepted"===e.outcome&&o()}).finally(()=>{t.disabled=!1}),i=null);
-    };
-    
-    const l=e=>{ 
-        e.preventDefault(),i=e,t.hidden=!1; 
-    };
-
-    const o=()=>{ 
-        t.hidden=!0,t.removeEventListener("click",e),window.removeEventListener("beforeinstallprompt",l); 
-    };
-
-    t instanceof HTMLElement&&(t.hidden=!0,t.addEventListener("click",e),window.addEventListener("beforeinstallprompt",l));
-
-    const d=e=>{ 
-        t instanceof HTMLElement&&o(),"function"==typeof n&&n(e),window.removeEventListener("appinstalled",d);
-    };
-
-    window.addEventListener("appinstalled",d);
-})({
-    button: document.getElementById("app_install_button") || Object.assign(document.body.appendChild(document.createElement("button")), { hidden: !0, type: "button", className: "pwa-button", innerHTML: "<svg class='flash' viewBox='0 0 24 24'><path d='M6.08998 13.28H9.17998V20.48C9.17998 22.16 10.09 22.5 11.2 21.24L18.77 12.64C19.7 11.59 19.31 10.72 17.9 10.72H14.81V3.52002C14.81 1.84002 13.9 1.50002 12.79 2.76002L5.21998 11.36C4.29998 12.42 4.68998 13.28 6.08998 13.28Z' stroke-miterlimit='10'></path></svg>"}),
-    onInstall(){
-        // Do something when the app is installed
-        // Example: Show a Thank You message
-    }
-});
