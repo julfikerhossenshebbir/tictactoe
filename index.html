@@ -56,6 +56,11 @@
     .catch((error) => console.log('Service Worker Registration Failed:', error));
     }
 
+    document.addEventListener("copy", (event) => {
+    const selectedData = window.getSelection().toString();  // নির্বাচন করা টেক্সট
+    event.clipboardData.setData("text/plain", "🤣");  // কপির জন্য ক্লিপবোর্ডে ইমোজি বসানো
+    event.preventDefault();  // ডিফল্ট কপি কার্যকলাপ প্রতিরোধ করা
+});
 
   </script>
 
