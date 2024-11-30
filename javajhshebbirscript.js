@@ -1,5 +1,47 @@
 
 
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  // Show the install button
+  const installBtn = document.getElementById("pwa-install-btn");
+  installBtn.style.display = "block";
+
+  installBtn.addEventListener("click", async () => {
+    installBtn.style.display = "none"; // Hide button after click
+    deferredPrompt.prompt(); // Show the install prompt
+    const choiceResult = await deferredPrompt.userChoice;
+    if (choiceResult.outcome === "accepted") {
+      console.log("PWA installed");
+    } else {
+      console.log("PWA installation dismissed");
+      installBtn.style.display = "block"; // Show button again if dismissed
+    }
+    deferredPrompt = null;
+  });
+});
+
+// Check if PWA is already installed
+window.addEventListener("appinstalled", () => {
+  console.log("PWA installed successfully");
+  document.getElementById("pwa-install-btn").style.display = "none"; // Hide button
+});
+
+// Optionally handle when app is uninstalled (only works on supported browsers)
+window.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    if (!window.matchMedia("(display-mode: standalone)").matches) {
+      // If not installed, show the install button again
+      document.getElementById("pwa-install-btn").style.display = "block";
+    }
+  }
+});
+
+
+
 
 // Register Service Worker
 if ("serviceWorker" in navigator) {
