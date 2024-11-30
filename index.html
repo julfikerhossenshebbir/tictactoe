@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tic Tac Toe</title>
-  <link rel="icon" type="image/x-icon" href="image/tic-tac-toe.png">
+  <link rel="icon" type="image/x-icon" href="https://ttt.jhsite.com/image/tic-tac-toe.png">
   <link rel="stylesheet" href="stylesheetjhshebbir.css">
   <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#000000">
@@ -55,13 +55,6 @@
     .then(() => console.log('Service Worker Registered'))
     .catch((error) => console.log('Service Worker Registration Failed:', error));
     }
-
-    document.addEventListener("copy", (event) => {
-    const selectedData = window.getSelection().toString();  // নির্বাচন করা টেক্সট
-    event.clipboardData.setData("text/plain", "🤣");  // কপির জন্য ক্লিপবোর্ডে ইমোজি বসানো
-    event.preventDefault();  // ডিফল্ট কপি কার্যকলাপ প্রতিরোধ করা
-});
-
   </script>
 
   
