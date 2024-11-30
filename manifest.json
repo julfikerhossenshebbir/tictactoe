@@ -41,5 +41,10 @@
   "display_override": ["fullscreen", "minimal-ui"],
   "scope": "/",
   "id": "/",
+  "shortcuts": [
+    {
+      "name": "This game Developer",
+      "short_name": "Developer",
+      "url": "https://www.julfikerhossenshebbir.com",
   "prefer_related_applications": false
 }
