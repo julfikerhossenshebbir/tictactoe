@@ -1,6 +1,6 @@
 {
   "name": "Tic Tac Toe",
-  "short_name": "TTT",
+  "short_name": "Tic Tac Toe",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -8,13 +8,48 @@
   "icons": [
     {
       "src": "https://ttt.jhsite.com/image/tic-tac-toe(1).png",
-      "sizes": "192x192",
+      "sizes": "128x128",
       "type": "image/png"
     },
     {
       "src": "https://ttt.jhsite.com/image/tic-tac-toe.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/jpeg"
+    }
+  ],
+  "description": "The Tic Tac Toe PWA lets you play the classic game directly in your browser or install it on your device. It works offline, offers a smooth app-like experience, and can be added to your home screen for quick access. Enjoy the game anytime, anywhere, on any device!",
+  "id": "jhs",
+  "dir": "auto",
+  "orientation": "any",
+  "categories": [
+    "business",
+    "lifestyle",
+    "social"
+  ],
+  "lang": "en",
+  "display_override": [
+    "browser",
+    "fullscreen",
+    "window-controls-overlay"
+  ],
+  "screenshots": [
+    {
+      "src": "https://ttt.jhsite.com/image/screenshots.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "web"
+    },
+    {
+      "src": "https://ttt.jhsite.com/image/screenshots1.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "web"
+    },
+    {
+      "src": "https://ttt.jhsite.com/image/screenshots2.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "web"
     }
   ]
 }
