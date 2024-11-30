@@ -7,12 +7,12 @@
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "image/tic-tac-toe(1).png",
+      "src": "https://ttt.jhsite.com/image/tic-tac-toe(1).png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "image/tic-tac-toe.png",
+      "src": "https://ttt.jhsite.com/image/tic-tac-toe.png",
       "sizes": "512x512",
       "type": "image/jpeg"
     }
@@ -34,19 +34,19 @@
   ],
   "screenshots": [
     {
-      "src": "image/screenshots.jpg",
+      "src": "https://ttt.jhsite.com/image/screenshots.jpg",
       "sizes": "1280x720",
       "type": "image/jpeg",
       "platform": "web"
     },
     {
-      "src": "image/screenshots1.jpg",
+      "src": "https://ttt.jhsite.com/image/screenshots1.jpg",
       "sizes": "1280x720",
       "type": "image/jpeg",
       "platform": "web"
     },
     {
-      "src": "image/screenshots2.jpg",
+      "src": "https://ttt.jhsite.com/image/screenshots2.jpg",
       "sizes": "1280x720",
       "type": "image/jpeg",
       "platform": "web"
