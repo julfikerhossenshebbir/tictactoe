@@ -20,7 +20,10 @@
   "description": "The Tic Tac Toe PWA lets you play the classic game directly in your browser or install it on your device. It works offline, offers a smooth app-like experience, and can be added to your home screen for quick access. Enjoy the game anytime, anywhere, on any device!",
   "lang": "en",
   "orientation": "portrait",
-  "categories": ["entertainment", "game"],
+  "categories": [
+    "entertainment",
+    "game"
+  ],
   "screenshots": [
     {
       "src": "https://ttt.jhsite.com/image/screenshots.jpg",
@@ -38,8 +41,21 @@
       "type": "image/jpeg"
     }
   ],
-  "display_override": ["fullscreen", "minimal-ui"],
+  "display_override": [
+    "fullscreen",
+    "minimal-ui",
+    "window-controls-overlay",
+    "browser",
+    "standalone"
+  ],
   "scope": "/",
   "id": "/",
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "This Game Developer",
+      "url": "https://admin.jhsite.com/",
+      "description": ""
+    }
+  ]
 }
